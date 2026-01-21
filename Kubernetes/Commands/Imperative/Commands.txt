@@ -1,0 +1,65 @@
+kubectl version --short
+kubectl cluster-info
+kubectl get nodes
+
+CREATE A POD:
+
+kubectl run nginx-pod --image=nginx
+
+VERIFY:
+
+kubectl get pods
+kubectl describe pod nginx-pod
+
+DELETE:
+
+kubectl delete pod nginx-pod
+
+CREATE A DEPLOYMENT:
+
+kubectl create deployment nginx-deploy --image=nginx
+
+SCALE IT:
+
+kubectl scale deployment nginx-deploy --replicas=3
+
+CHECK:
+
+kubectl describe deployment nginx-deploy
+kubectl get deployments
+kubectl get deployment nginx-deploy 
+kubectl get deployment nginx-deploy -o wide
+kubectl get deployment nginx-deploy -o yaml
+kubectl get pods
+kubectl get all
+
+EXPOSE IT USING CLUSTER IP:
+Services:
+
+create a service:
+kubectl expose deployment nginx-deploy \
+  --type=ClusterIP \
+  --port=80 \
+  --target-port=80 \
+  --name=nginx-service
+
+kubectl get svc
+
+Test ClusterIP from Inside Cluster:
+
+kubectl run test-pod --image=busybox -it --rm -- sh
+wget -qO- http://nginx-service
+exit
+
+EXPOSE TO BROWSER USING NODE PORT
+
+kubectl expose deployment nginx-deploy \
+  --type=NodePort \
+  --port=80 \
+  --name=nginx-nodeport
+
+kubectl get svc nginx-nodeport
+
+localhost:(the port that u get)
+
+

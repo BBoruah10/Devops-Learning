@@ -1,0 +1,21 @@
+--tell kubernetes what we want
+
+What Kubernetes does
+
+Stores desired state
+
+Continuously reconciles differences
+
+Auto-fixes drift
+
+✅ Pros
+
+✔ Production-ready
+✔ Version controlled (Git)
+✔ Repeatable & scalable
+✔ Supports rollbacks
+
+❌ Cons
+
+❌ Slight learning curve
+❌ More initial setup

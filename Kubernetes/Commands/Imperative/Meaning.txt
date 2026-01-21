@@ -1,0 +1,30 @@
+--Tells Kubernetes how to do something.
+Commands are Imperative
+
+Imperative Approach
+📌 Meaning
+
+You give direct commands to Kubernetes.
+
+“Create this now”
+“Scale this to 3 replicas”
+
+What Kubernetes does
+
+Executes exactly what you say
+
+No stored desired state
+
+Mostly one-time actions
+
+✅ Pros
+
+✔ Very easy
+✔ Fast for learning
+✔ Good for testing & debugging
+
+❌ Cons
+
+❌ Not repeatable
+❌ No version control
+❌ Hard to manage large systems

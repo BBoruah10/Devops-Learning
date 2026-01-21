@@ -1,0 +1,3 @@
+Create pod.yaml and run
+
+--kubectl apply -f pod.yaml
