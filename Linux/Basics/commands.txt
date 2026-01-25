@@ -1,0 +1,110 @@
+🐧 Linux Command Basics (Clean + Correct)
+👤 System info
+whoami        # current user
+pwd           # present working directory
+hostname      # machine name
+date          # current date & time
+
+📁 Directory & files
+cd dir        # move into dir
+cd .          # current directory
+cd ..         # parent directory
+
+mkdir dir     # create directory
+
+ls            # list files
+ls -l         # long details (permissions, size, date)
+ls -a         # show hidden files
+ls -t         # sort by modified time (not created)
+ls -r         # reverse order
+
+🔐 Permissions
+r = 4   w = 2   x = 1
+
+Change permissions:
+
+Symbolic:
+
+chmod +x file
+chmod a+r file
+chmod -w file
+
+
+Numeric:
+
+chmod 755 file
+chmod 644 file
+
+Permission layout:
+-rwxr-xr--
+ │ │ │
+ │ │ └─ others
+ │ └── group
+ └─── user
+
+
+First character:
+
+- file
+
+d directory
+
+l link
+
+⚙ Processes
+ps aux
+kill PID
+pkill process_name
+
+🔍 Search
+grep "word" file
+pgrep process
+
+🔗 Pipes
+ps aux | grep nginx
+ls | wc -l    # count files
+
+
+(count → should be wc -l 👍)
+
+📄 Files & editors
+touch file
+
+vim file
+nano file
+
+cat file
+head file
+head -n 5 file
+tail file
+tail -f file
+
+📂 Logs location
+
+Most app/system logs live in:
+
+/var/log
+
+
+Examples:
+
+/var/log/syslog
+/var/log/nginx/
+/var/log/docker.log
+
+🔧 Services (VERY important for servers)
+systemctl ---> command for controlling the systemd system and service managers.
+systemctl status service
+systemctl start service
+systemctl stop service
+systemctl restart service
+
+📜 System logs
+journalctl
+journalctl -u service_name
+journalctl -f
+
+
+Disk 
+
+df -h  #Disk usage

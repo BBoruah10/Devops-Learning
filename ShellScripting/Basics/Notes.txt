@@ -1,0 +1,111 @@
+##Shebang
+
+#!/bin/bash  #tells that script runs in bash
+
+##Comment
+
+#This is a Comment
+
+##Variables
+
+VAR_NAME=VALUE
+
+if used with linux command
+VAR_NAME=$(command)
+
+--Access Variables
+
+$VAR_NAME
+
+##Print
+
+echo
+
+##EXIT status
+
+0 ---> success
+non_zero ----> failure
+
+$?  ---> returns the exit status of the previously exexuted command
+
+## Files
+-f  --> file exists
+
+-d  --> directory exists or not
+
+##
+
+>  overwrite
+>> concate 
+
+##Condition
+
+if [ condition ]
+then
+    command
+else
+    command
+fi
+
+comparisons 
+
+-eq, -ne , -ge , -gt, -le ,-lt
+
+if [ condition ]
+then
+    command
+elif [ command ]
+then
+    command
+else
+    command
+fi
+
+
+##Loops
+
+for i in VAR
+do
+  command
+done
+
+while [ condition ]
+do
+ 
+done
+
+##read
+
+read -p "msg" VAR_NAME
+read VAR_NAME
+
+##Take file as input
+
+check if input is given or not
+
+$# --> returns the number of arguments
+
+if [ $# -eq 0]
+then
+  command
+fi
+
+##FUNCTIONS
+function_name{
+  command
+}
+no return direct write command
+
+call function
+
+function_name
+
+if return type
+VAR=$(function_name)
+if arguments-->
+
+call function
+
+function_name arg1 arg2
+
+
