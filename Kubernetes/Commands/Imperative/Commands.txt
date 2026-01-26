@@ -33,6 +33,15 @@ kubectl get deployment nginx-deploy -o yaml
 kubectl get pods
 kubectl get all
 
+
+kubectl logs POD
+kubectl logs POD -f
+kubectl logs POD --previous
+kubectl logs POD -c container
+kubectl logs deployment/app
+kubectl logs -l app=backend
+
+
 EXPOSE IT USING CLUSTER IP:
 Services:
 
