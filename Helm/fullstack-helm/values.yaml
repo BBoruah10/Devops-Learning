@@ -1,0 +1,17 @@
+namespace: dev
+
+frontend:
+  image: bhaskarboruah10/frontend-react
+  tag: "v1"
+  replicas: 2
+  port: 80
+
+backend:
+  image: bhaskarboruah10/spring-backend
+  tag: "v1"
+  replicas: 2
+  port: 8080
+
+ingress:
+  enabled: true
+  host: app.local

@@ -1,0 +1,7 @@
+namespace: prod
+
+frontend:
+  replicas: 3
+
+backend:
+  replicas: 3
