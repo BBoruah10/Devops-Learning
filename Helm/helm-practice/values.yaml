@@ -1,4 +1,4 @@
 nginxApp:
-  image: nginx
+  image: nginx:broken
   replicas: 3
   port: 80
