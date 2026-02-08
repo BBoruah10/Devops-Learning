@@ -403,8 +403,61 @@ ingress rules(yml files)
 
 Browser -> Ingress Controller -> Service -> pods
 
+## GitHub Actions
 
+GitHub Actions is a workflow automation service by GitHub.
+It is used for CI/CD
 
+Components of GitHub Actions:
 
+1. Workflow : Workflows are attached to repository.
+    Workflow contains jobs .
+    Workflow is executed when an event is triggered.
 
+2. Jobs: Jobs define runners.
+    Runnners defines the servers where the workflow will execute .
+    Jobs contains Steps.
+
+3. Steps: does the actual work
+
+Woekflows are YML files created inside the .github/workflows file
+
+- Events:
+
+Events can be related to repositories or general
+
+Events related to repository are push,pull_request
+General are schedule,workflow_dispatch
+
+Activity types: gives detailed control on when the workflow should bw executed.
+   For pull_request its opened,closed
+Event filters: provides detailed control on when the workflow should be executed.
+   branches:
+      main
+   path:
+
+- Artifacts:
+
+Artifact are the files generated during the workflow.
+Actions provides us options to upload and download artifacts
+It helps to reue files
+
+- Dependency Cache:
+
+Dependency Cache are used to reduce the time for installing the dependencies  in a job
+We cache the dependency first then install in a job . In other jobs requiring the same dependencies
+just reuse from the cache.
+
+- STRUCTURE
+
+name:
+on:
+  --specifies when the workflow should be executed
+jobs:
+   job_name:
+     runs_on:
+      
+    steps:
+       name:
+       run /uses
 
