@@ -248,3 +248,163 @@ This happens by default if:
 The file is named .env
 
 It is in the same directory as docker-compose.yml
+
+## Kubernetes
+
+### Basics
+
+- Kubernetes 
+
+  K8s is used to run multiple containers on mutliple machines.
+
+  WHEN?
+  Multiple Machine(SERVERS) + high CHANGE RATE
+
+  CHANGE RATE : defines how frequently the code changes or get updated.
+
+  Advantages:
+   
+   1. Self Healing
+   2. High Availability
+
+
+   Kubernetes does not create contianers , it creates PODS that runs Containers.
+   Inside node, Kubelet tells the container run time to create and manage pods. 
+
+- Deployment
+  
+  Deployment is a higher resource type . It manages replicaset.
+ 
+- ReplicaSet 
+
+  ReplicaSet manages Pods.
+
+- Pods 
+ 
+ It is the smallest unit of deployment.Pod is a wrapper around two or more containers that share the same network and storage
+ Without Pods?
+
+ Containers single handedly cannot share network or storage.
+
+ Pods runs inside a Node.
+
+- kubectl 
+
+ kubectl is a tool used to configure and manage kubernetes. 
+
+- Nodes
+ 
+ Nodes are the machine that runs pods.
+
+- Control Plane
+  
+  Control Plane or Panel manages the entire cluster and nodes.
+
+  Components of Control plane:
+
+  1. kube api-server
+      Every request goes through the api server.
+  2. etcd
+      Its is a distributed key value pair .
+      Stores:
+         Pod info
+  3. controller manager
+     It contains many controllers like
+     deployment controller
+  4. kube scheduler
+       decides which node should run the pod.
+
+  Components of Node:
+
+  1. kubelet
+      A kubernetes agent running on a node
+  2. Container run time
+      Container run time manages and creates containers.
+      Eg: Docker
+
+Two ways to deploy pods:
+- Command
+- YAML
+### Commands
+
+kubectl version
+
+kubectl run my-nginx --image=NAME
+
+WHAT HAPPENS ?
+
+1. kubectl sends request to the kube api server.
+2. Request goes to the kube api server . API server authenticates, authorizes and validates.
+3. etcd stores state.
+4. Scheduler decides which node should run the pods.
+5. kubelet tells the container run time to run and manage pods.
+
+kubectl create deployment my-nginx --image=NAME
+
+WHAT HAPPENS ?
+
+1. kubectl sends request to the kube api server.
+2. Request goes to the kube api server . API server authenticates, authorizes and validates.
+3. etcd stores state.
+4. Deployment controller creates replica set
+5. Replicaset creates pods.
+6. Scheduler decides which node should run the pods.
+7. kubelet tells the container run time to run and manage pods.
+
+kubectl apply -f file.yml
+kubectl apply -f folder/
+
+kuectl get pods
+kubectl get pods -o wide
+kubectl get pods -o yml
+kubectl get depolyments
+kubectl describe pod pod_name
+kubectl describe deployment deployment_name
+
+kubectl logs pod_name
+
+- Services
+ 
+ Service is a method of exposing network applications.
+ define yml file or directly write commands
+
+ kubectl expose deployment deployment_name type port
+
+ kubectl get svc
+ kubectl describe svc
+
+ Four types:
+ 1. Cluster IP (used for internal communication,Accessible only inside cluster)
+ 2. Node Port (can be accessed in the broser for testing)
+ 3. Load Balancer (cloud)
+ 4. Ingress
+
+USER -> SERVICE -> PODS
+
+WHY?
+
+Pods are temporary . Pods have temporary IP address and name .
+Services gives pods permanent name and Ip address .
+In order to connect service and pod we must have
+ A pod with label
+ A service with selectors
+
+ Selector name must match with the label name .
+
+Kubernetes cannot connect using the Ip address of the pods as they are temporary . It uses labels and slectors to connect.
+
+- INGRESS
+
+Ingress is a smart traffic router that routes traffic to service .
+
+Two things:
+ingress controller (application that runs in the cluster)
+ingress rules(yml files)
+
+Browser -> Ingress Controller -> Service -> pods
+
+
+
+
+
+
