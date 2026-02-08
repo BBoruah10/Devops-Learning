@@ -461,3 +461,37 @@ jobs:
        name:
        run /uses
 
+## Git & GitHub 
+
+Git is a distributed version control system.
+It helps to collaborate.
+It helps in roll back.
+
+WORKING DIRECTORY -> STAGING AREA -> LOCAL REPO
+
+git init
+git status
+git add .
+git commit -m "msg"
+
+git remote add origin repo_link
+git branch origin main
+git push -u origin main
+
+git push origin main
+
+git checkout -b branch_name
+git checkout branch_name
+git branch
+git push origin main
+
+git checkout main
+git merge branch_name
+
+Pull_Request
+
+When You want to add something to some else's code then have to do a pull_request.
+
+Forking:
+
+Here also pull_request
