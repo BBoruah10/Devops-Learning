@@ -212,4 +212,39 @@ Bind mounts(access local storage)
 
 
 
+## Docker Compose
 
+Docker compose helps to run multiple containers at the same time with a single command .
+
+Docker compose is a yml file
+
+COMMANDS:
+
+ docker compose up
+ docker compoe down
+ docker compose up --build
+ docker compose down -v
+
+ docker-compose.yml file:
+
+ version: specifies the verison of the yml file
+
+ services : specifies the services i.e. containers
+    service_name:
+       image: specify the image from dokcer hub
+       build: if dockerfile is present locally
+       ports:
+       depends:
+       env:
+       depends-on:
+       volume:
+       network:
+  
+compose file is great!
+Docker Compose automatically reads a .env file and provides those values as variables to the docker-compose.yml file.
+
+This happens by default if:
+
+The file is named .env
+
+It is in the same directory as docker-compose.yml
